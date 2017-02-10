@@ -1,29 +1,31 @@
 {
-  "name": "pyramid-challenge",
-  "version": "1.0.0",
-  "description": "Describe pyramid-challenge here",
-  "private": true,
-  "scripts": {
-    "build": "nwb build-react-app",
-    "clean": "nwb clean-app",
-    "start": "nwb serve-react-app",
-    "test": "nwb test-react",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
-  },
-  "dependencies": {
-    "alt": "^0.18.6",
-    "material-ui": "^0.16.7",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.2",
-    "react-tap-event-plugin": "^2.0.1"
-  },
-  "devDependencies": {
-    "nwb": "0.14.x",
-    "nwb-sass": "^0.7.1"
-  },
-  "author": "",
-  "license": "MIT",
-  "repository": ""
+	"name": "pyramid-challenge",
+	"version": "1.0.0",
+	"description": "Describe pyramid-challenge here",
+	"private": true,
+	"scripts": {
+		"build": "./node_modules/nwb/lib/bin/nwb.js build-react-app",
+		"clean": "./node_modules/nwb/lib/bin/nwb.js clean-app",
+		"start": "./node_modules/nwb/lib/bin/nwb.js serve-react-app",
+		"test": "./node_modules/nwb/lib/bin/nwb.js test-react",
+		"test:coverage": "./node_modules/nwb/lib/bin/nwb.js test-react --coverage",
+		"test:watch": "./node_modules/nwb/lib/bin/nwb.js test-react --server",
+		"postinstall": "./node_modules/nwb/lib/bin/nwb.js serve-react-app"
+	},
+	"dependencies": {
+		"alt": "^0.18.6",
+		"express": "^4.14.1",
+		"material-ui": "^0.16.7",
+		"react": "^15.4.2",
+		"react-dom": "^15.4.2",
+		"react-router": "^3.0.2",
+		"react-tap-event-plugin": "^2.0.1"
+	},
+	"devDependencies": {
+		"nwb": "0.14.x",
+		"nwb-sass": "^0.7.1"
+	},
+	"author": "",
+	"license": "MIT",
+	"repository": ""
 }
