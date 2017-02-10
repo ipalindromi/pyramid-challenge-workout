@@ -55,6 +55,7 @@ export default class SetupOptionsForm extends Component {
 						<SelectField
 							floatingLabelText="Choose Your Exercise"
 							onChange={ this.handleExerciseChange.bind(this) }
+							errorText={ !this.state.selectedExercise ? 'You must select an exercise' : '' }
 							value={ this.state.selectedExercise }
 							floatingLabelFixed
 							fullWidth

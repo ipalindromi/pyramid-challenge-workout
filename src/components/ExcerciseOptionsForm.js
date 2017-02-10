@@ -14,6 +14,10 @@ export default class ExerciseOptionsForm extends Component {
 
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			maxEntered : false,
+		}
 	}
 
 	componentWillMount() {
@@ -32,16 +36,13 @@ export default class ExerciseOptionsForm extends Component {
 		maxInputTimer = window.setTimeout(() => {
 			UserInputActions.changeMaxLift(value);
 		}, 500)
+
+		this.setState({
+			maxEntered : !!value,
+		});
 	}
 
 	render() {
-
-		if (!this.props.exercise) {
-			return (
-				<div className="well text-center">^ You must first select an exercise ^</div>
-			);
-		}
-
 		const data = exercises.find((exercise) => {
 			return exercise.name === this.props.exercise;
 		});
@@ -69,8 +70,12 @@ export default class ExerciseOptionsForm extends Component {
 				</div>
 				<div className="row">
 					<div className="col-xs-6">
-						<TextField type='number' onChange={ this.handleMaxChange.bind(this) } fullWidth
-								   floatingLabelText="Your Max For This Exercise"/>
+						<TextField type='number'
+								   onChange={ this.handleMaxChange.bind(this) }
+								   fullWidth
+								   floatingLabelText="Your Max For This Exercise"
+								   errorText={ ( !this.state.maxEntered ) ? "You must enter your one rep max" : '' }
+						/>
 					</div>
 				</div>
 			</div>
