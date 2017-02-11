@@ -35,7 +35,7 @@ export default class ExerciseOptionsForm extends Component {
 
 		maxInputTimer = window.setTimeout(() => {
 			UserInputActions.changeMaxLift(value);
-		}, 500)
+		}, 500);
 
 		this.setState({
 			maxEntered : !!value,
@@ -53,19 +53,6 @@ export default class ExerciseOptionsForm extends Component {
 
 		return (
 			<div>
-			{/*	<h1>Let's { this.props.exercise }!</h1>
-				<div className="row">
-					<div className="col-xs-6">
-						<Checkbox style={{ marginTop : 30 }} disabled label="Uses A Barbell"
-								  checked={ data.isBarbellExercise }/>
-					</div>
-					<div className="col-xs-6">
-						<TextField fullWidth
-								   floatingLabelText="Extra Weight"
-								   disabled={ data.isBarbellExercise }
-								   value={ (data.isBarbellExercise) ? 45 : 0 }/>
-					</div>
-				</div>*/}
 				<div className="row">
 					<div className="col-xs-6">
 						<TextField type='number'

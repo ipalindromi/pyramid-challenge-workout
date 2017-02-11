@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import Paper from 'material-ui/Paper';
 import AppStore from '../stores/AppStore';
+import difficulties from '../data/difficulties';
 
 export default class WorkoutReport extends Component {
 
@@ -24,37 +25,18 @@ export default class WorkoutReport extends Component {
 		this.setState(state);
 	}
 
-	_calculateSeries(difficulty, max, startingWeight, smallestWeight = 2.5, units = 'lbs') {
-		const difficultyLevel = this.state.difficulties.indexOf(difficulty);
+	_calculateSeries(difficultyLevel, max, startingWeight, smallestWeight = 2.5, units = 'lbs') {
 
 		if (difficultyLevel === undefined) {
 			throw new Error('Unrecognized difficulty level');
 		}
 
+		const difficulty = difficulties[difficultyLevel];
+
 		// SET ALL THE DIFFICULTY VARIABLES
 		// ----------------------------------
-		let sets = 15;
-		let percentOfMax = .8;
-
-		switch (difficultyLevel) {
-			case 0:
-				percentOfMax = .6;
-				break;
-			case 1:
-				percentOfMax = .7;
-				break;
-			case 2:
-				percentOfMax = .8;
-				break;
-			case 3:
-				sets = 30;
-				percentOfMax = .6;
-				break;
-			case 4:
-				sets = 30;
-				percentOfMax = .7;
-				break;
-		}
+		let sets = difficulty.sets;
+		let percentOfMax = difficulty.percentOfMax / 100;
 
 		// This is the weight that will be lifted for 1 rep
 		let goalMaxWeight = max * percentOfMax;

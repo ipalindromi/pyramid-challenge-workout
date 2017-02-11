@@ -1,25 +1,20 @@
 import alt from '../altflux';
 import UserInput from '../actions/UserInputActions'
 import exercises from '../data/exercises';
-
-const DIFFICULTIES = [
-	`I'm Too Young To Die`,
-	'Hey, Not Too Rough',
-	'Hurt Me Plenty',
-	'Ultra-Violence',
-	'Nightmare!',
-];
+import difficulties from '../data/difficulties';
 
 const DEFAULT_BARBELL_WEIGHT = 45;
+
+const DEFAULT_DIFFICULTY = 1;
 
 class AppStore {
 	constructor() {
 
 		this.selectedExercise = false;
 		this.exercises = exercises;
-		this.difficulties = DIFFICULTIES;
-		this.selectedDifficulty = 'Hurt Me Plenty';
+		this.difficulties = difficulties;
 
+		this.selectedDifficulty = DEFAULT_DIFFICULTY;
 		this.exerciseMax = 0;
 
 		this.bindListeners({

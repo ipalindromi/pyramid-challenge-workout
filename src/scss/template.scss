@@ -1,11 +1,21 @@
-h1 {
+
+.headers {
 	margin: 0;
 	padding: 0;
 }
 
+h1 {
+	@extend .headers;
+}
+
 h2 {
+	@extend .headers;
 	font-size: 1.4em;
-	color: dimgray;
+}
+
+h3 {
+	@extend .headers;
+	font-size: 1.2em;
 }
 
 body {

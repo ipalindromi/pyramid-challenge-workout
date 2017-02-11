@@ -4,7 +4,9 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import AppStore from '../stores/AppStore';
 import UserInputActions from '../actions/UserInputActions';
-import ExcerciseOptionsForm from './ExcerciseOptionsForm'
+import ExcerciseOptionsForm from './ExcerciseOptionsForm';
+import Slider from 'material-ui/Slider';
+import difficulties from '../data/difficulties';
 
 export default class SetupOptionsForm extends Component {
 
@@ -28,12 +30,24 @@ export default class SetupOptionsForm extends Component {
 		this.setState(state);
 	}
 
-	handleDifficultyChange(e, key, value) {
+	handleDifficultyChange(e, value) {
 		UserInputActions.changeDifficulty(value);
 	}
 
 	handleExerciseChange(e, key, value) {
 		UserInputActions.changeExercise(value);
+	}
+
+	_makeDifficultyDescription(difficulty) {
+
+		const halfOrFull = difficulty.sets === 15 ? "half-pyramid" : "full-pyramid"
+		return (
+			<div>
+				You will be doing a <strong>{halfOrFull}</strong> workout of <strong>{ difficulty.sets }</strong> sets
+				starting at { difficulty.isBarbellExercise === true ? "45" : ''} and working up to
+				<strong>{ difficulty.percentOfMax }%</strong> of your one-rep maximum.
+			</div>
+		);
 	}
 
 	render() {
@@ -44,9 +58,7 @@ export default class SetupOptionsForm extends Component {
 
 		options.splice(0, 0, <MenuItem key="null"/>);
 
-		const difficulties = this.state.difficulties.map((difficulty, idx) => {
-			return <MenuItem key={idx} value={ difficulty } primaryText={ difficulty }/>;
-		});
+		const difficulty = difficulties[this.state.selectedDifficulty];
 
 		return (
 			<Paper style={{ padding : 25 }}>
@@ -67,14 +79,22 @@ export default class SetupOptionsForm extends Component {
 				</div>
 				<div className="row">
 					<div className="col-xs-12">
-						<SelectField floatingLabelText="Choose Your Difficulty"
-									 onChange={ this.handleDifficultyChange.bind(this) }
-									 value={ this.state.selectedDifficulty }
-									 floatingLabelFixed
-									 fullWidth
-						>
-							{difficulties}
-						</SelectField>
+						<div>
+							<h2>Choose Your Difficulty</h2>
+							<Slider onChange={this.handleDifficultyChange}
+									step={ 1 }
+									min={1}
+									max={5}
+									defaultValue={ 1 }
+									value={ this.state.selectedDifficulty }/>
+
+							<div className="panel panel-default">
+								<div className="panel-heading">{ difficulty.name }</div>
+								<div className="panel-body">
+									{ this._makeDifficultyDescription(difficulty) }
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<ExcerciseOptionsForm exercise={ this.state.selectedExercise }/>
