@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import Paper from 'material-ui/Paper';
 import AppStore from '../stores/AppStore';
-import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 
 export default class WorkoutReport extends Component {
 
@@ -49,11 +48,11 @@ export default class WorkoutReport extends Component {
 				break;
 			case 3:
 				sets = 30;
-				percentOfMax = .7;
+				percentOfMax = .6;
 				break;
 			case 4:
 				sets = 30;
-				percentOfMax = .8;
+				percentOfMax = .7;
 				break;
 		}
 
@@ -125,7 +124,6 @@ export default class WorkoutReport extends Component {
 		// We want to work back down to startingWeight
 		if (sets > 15) {
 			series = series.concat(series.slice(0, 14).reverse());
-			f
 		}
 
 		return series;
@@ -133,23 +131,23 @@ export default class WorkoutReport extends Component {
 
 	render() {
 
-		let content = [];
+		let content = false;
 
 		if (!this.state.selectedExercise) {
-			content.push((
-				<p key='exercise' style={{ padding: 25 }} className="bg-warning text-center">
+			content = (
+				<p key='exercise' style={{ padding : 25 }} className="bg-warning text-center">
 					Your workout will be generated once you enter an excercise
 				</p>
-			));
+			);
 		} else if (!this.state.exerciseMax) {
-			content.push((
-				<p key='max' style={{ padding: 25 }} className="bg-warning text-center">
+			content = (
+				<p key='max' style={{ padding : 25 }} className="bg-warning text-center">
 					Your workout will be generated once you enter your one rep maximum for {this.state.selectedExercise}
 				</p>
-			));
+			);
 		}
 
-		if (!content.length) {
+		if (!content) {
 			const series = this._calculateSeries(
 				this.state.selectedDifficulty,
 				this.state.exerciseMax,
@@ -172,33 +170,36 @@ export default class WorkoutReport extends Component {
 				);
 			});
 			content = (
-				<table className="table">
-					<thead>
-					<tr>
-						<th>Set</th>
-						<th>Reps</th>
-						<th>Weight</th>
-						<th>Increase</th>
-						<th>Total Weight</th>
-					</tr>
-					</thead>
-					<tbody>
-					{rows}
-					<tr>
-						<td colSpan="2">Total Reps:</td>
-						<td>{totalReps}</td>
-						<td>Total Weight:</td>
-						<td>{ totalWeight }</td>
-					</tr>
-					</tbody>
-				</table>
+				<div>
+					<h1 style={{ margin : 0, padding : 0 }} className="text-center">
+						Let's {this.state.selectedExercise}!</h1>
+					<hr/>
+					<table className="table">
+						<thead>
+						<tr>
+							<th>Set</th>
+							<th>Reps</th>
+							<th>Weight</th>
+							<th>Increase</th>
+							<th>Total Weight</th>
+						</tr>
+						</thead>
+						<tbody>
+						{rows}
+						<tr>
+							<td colSpan="2">Total Reps:</td>
+							<td>{totalReps}</td>
+							<td>Total Weight:</td>
+							<td>{ totalWeight }</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 			);
 		}
 
 		return (
 			<Paper>
-				<h1 style={{ margin : 0, padding : 0 }} className="text-center">Your Workout</h1>
-				<hr/>
 				{ content }
 			</Paper>
 		);

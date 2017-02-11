@@ -48,14 +48,12 @@ export default class ExerciseOptionsForm extends Component {
 		});
 
 		if (!data) {
-			return (
-				<div>Could Not Find Exercise</div>
-			)
+			return false;
 		}
 
 		return (
 			<div>
-				<h1>Let's { this.props.exercise }!</h1>
+			{/*	<h1>Let's { this.props.exercise }!</h1>
 				<div className="row">
 					<div className="col-xs-6">
 						<Checkbox style={{ marginTop : 30 }} disabled label="Uses A Barbell"
@@ -67,7 +65,7 @@ export default class ExerciseOptionsForm extends Component {
 								   disabled={ data.isBarbellExercise }
 								   value={ (data.isBarbellExercise) ? 45 : 0 }/>
 					</div>
-				</div>
+				</div>*/}
 				<div className="row">
 					<div className="col-xs-6">
 						<TextField type='number'

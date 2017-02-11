@@ -50,6 +50,7 @@ export default class SetupOptionsForm extends Component {
 
 		return (
 			<Paper style={{ padding : 25 }}>
+				<h1>Setup</h1>
 				<div className="row">
 					<div className="col-xs-12">
 						<SelectField
