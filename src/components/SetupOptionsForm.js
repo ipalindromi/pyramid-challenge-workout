@@ -62,15 +62,13 @@ export default class SetupOptionsForm extends Component {
 
 		return (
 			<Paper style={{ padding : 25 }}>
-				<h1>Setup</h1>
+				<h2>Choose Your Exercise</h2>
 				<div className="row">
 					<div className="col-xs-12">
 						<SelectField
-							floatingLabelText="Choose Your Exercise"
 							onChange={ this.handleExerciseChange.bind(this) }
 							errorText={ !this.state.selectedExercise ? 'You must select an exercise' : '' }
 							value={ this.state.selectedExercise }
-							floatingLabelFixed
 							fullWidth
 						>
 							{ options }

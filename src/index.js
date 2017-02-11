@@ -60,8 +60,8 @@ const App = (props) => (
 							</p>
 							<p>
 								The combination of high volume and low rest periods makes for a very challenging, yet
-								quick, workout that absolutely accomplishes its goals. The next time you go for a heavy
-								5-rep lift, it'll feel like a relief after this torture.
+								quick, workout that absolutely accomplishes its goal of training you to fight through
+								fatigue. The next time you go for a heavy 5-rep lift, it'll feel like a relief after this torture.
 							</p>
 							<p>
 								Hopefully this app makes it easier for others to join in the fun! Pyramid lifting

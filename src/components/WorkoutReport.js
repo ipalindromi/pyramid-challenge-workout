@@ -143,7 +143,7 @@ export default class WorkoutReport extends Component {
 				totalReps += set.reps;
 				return (
 					<tr key={idx}>
-						<td>{set.set}</td>
+						<td className="">{set.set}</td>
 						<td>{set.reps}</td>
 						<td>{set.weight}</td>
 						<td>{set.increase}</td>
