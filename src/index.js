@@ -89,6 +89,7 @@ const App = (props) => (
 render(
 	<Router history={browserHistory}>
 		<Route path="/" component={App}>
+			<Route path="/pyramid-challenge" component={App}/>
 		</Route>
 	</Router>
 	, document.querySelector('#app'));

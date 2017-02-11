@@ -40,12 +40,12 @@ export default class SetupOptionsForm extends Component {
 
 	_makeDifficultyDescription(difficulty) {
 
-		const halfOrFull = difficulty.sets === 15 ? "half-pyramid" : "full-pyramid"
+		const halfOrFull = difficulty.sets === 15 ? "half-pyramid" : "full-pyramid";
+
 		return (
-			<div>
+			<div id="difficulty-panel">
 				You will be doing a <strong>{halfOrFull}</strong> workout of <strong>{ difficulty.sets }</strong> sets
-				starting at { difficulty.isBarbellExercise === true ? "45" : ''} and working up to
-				<strong>{ difficulty.percentOfMax }%</strong> of your one-rep maximum.
+				starting at <strong>{ difficulty.isBarbellExercise === true ? "45" : ''}</strong> and working up to <strong>{ difficulty.percentOfMax }%</strong> of your one-rep maximum.
 			</div>
 		);
 	}
