@@ -33,6 +33,11 @@ export default class ExerciseOptionsForm extends Component {
 	handleMaxChange(e, value) {
 		window.clearTimeout(maxInputTimer);
 
+		if (isNaN(parseFloat(value))) {
+			e.preventDefault();
+			return false;
+		}
+
 		maxInputTimer = window.setTimeout(() => {
 			UserInputActions.changeMaxLift(value);
 		}, 500);

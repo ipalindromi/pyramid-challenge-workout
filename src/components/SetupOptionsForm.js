@@ -45,7 +45,8 @@ export default class SetupOptionsForm extends Component {
 		return (
 			<div id="difficulty-panel">
 				You will be doing a <strong>{halfOrFull}</strong> workout of <strong>{ difficulty.sets }</strong> sets
-				starting at <strong>{ difficulty.isBarbellExercise === true ? "45" : ''}</strong> and working up to <strong>{ difficulty.percentOfMax }%</strong> of your one-rep maximum.
+				starting at <strong>45 lbs.</strong> and working up to <strong>{ difficulty.percentOfMax }%</strong> of
+				your one-rep maximum.
 			</div>
 		);
 	}
