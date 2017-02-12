@@ -87,18 +87,20 @@ export default class SetupOptionsForm extends Component {
 					<h2>Choose Your Difficulty
 						<small>Drag slider to change difficulty</small>
 					</h2>
-					<h3>Selected: { difficulty.name }</h3>
-					<div className={`difficulty-${this.state.selectedDifficulty} panel panel-default`}>
-						<div className="panel-body">
-							{ this._makeDifficultyDescription(difficulty) }
-						</div>
-					</div>
 					<Slider onChange={this.handleDifficultyChange}
 							step={ 1 }
 							min={1}
 							max={5}
 							defaultValue={ 1 }
 							value={ this.state.selectedDifficulty }/>
+					<h3>Selected: { difficulty.name }
+						<small>{ difficulty.blurb }</small>
+					</h3>
+					<div className={`difficulty-${this.state.selectedDifficulty} panel panel-default`}>
+						<div className="panel-body">
+							{ this._makeDifficultyDescription(difficulty) }
+						</div>
+					</div>
 				</div>
 			);
 		}
