@@ -84,7 +84,7 @@ export default class WorkoutReport extends Component {
 				}
 			}
 
-			if (increase < 0) {
+			if (increase < 0 || set == sets) {
 				increase = 0;
 			}
 
@@ -105,7 +105,16 @@ export default class WorkoutReport extends Component {
 
 		// We want to work back down to startingWeight
 		if (sets > 15) {
-			series = series.concat(series.slice(0, 14).reverse());
+
+			// Do not repeat the 1 rep max set
+			const reverse = series.slice(0, 14).reverse().map((set, idx) => {
+				// Slice shallow copies
+				return Object.assign({}, set, {
+					set : 16 + idx,
+				});
+			});
+
+			series = series.concat(reverse);
 		}
 
 		return series;
