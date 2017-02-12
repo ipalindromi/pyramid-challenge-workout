@@ -61,8 +61,10 @@ export default class SetupOptionsForm extends Component {
 
 		const difficulty = difficulties[this.state.selectedDifficulty];
 
-		return (
-			<Paper style={{ padding : 25 }}>
+		const content = [];
+
+		content.push(
+			<div id="exercise-wrapper">
 				<h2>Choose Your Exercise</h2>
 				<div className="row">
 					<div className="col-xs-12">
@@ -76,27 +78,44 @@ export default class SetupOptionsForm extends Component {
 						</SelectField>
 					</div>
 				</div>
-				<div className="row">
-					<div className="col-xs-12">
-						<div>
-							<h2>Choose Your Difficulty</h2>
-							<Slider onChange={this.handleDifficultyChange}
-									step={ 1 }
-									min={1}
-									max={5}
-									defaultValue={ 1 }
-									value={ this.state.selectedDifficulty }/>
+			</div>
+		);
 
-							<div className="panel panel-default">
-								<div className="panel-heading">{ difficulty.name }</div>
-								<div className="panel-body">
-									{ this._makeDifficultyDescription(difficulty) }
-								</div>
-							</div>
+		if (this.state.selectedExercise) {
+			content.push(
+				<div id="difficulty-wrapper">
+					<h2>Choose Your Difficulty
+						<small>Drag slider to change difficulty</small>
+					</h2>
+					<h3>Selected: { difficulty.name }</h3>
+					<div className={`difficulty-${this.state.selectedDifficulty} panel panel-default`}>
+						<div className="panel-body">
+							{ this._makeDifficultyDescription(difficulty) }
 						</div>
 					</div>
+					<Slider onChange={this.handleDifficultyChange}
+							step={ 1 }
+							min={1}
+							max={5}
+							defaultValue={ 1 }
+							value={ this.state.selectedDifficulty }/>
 				</div>
+			);
+		}
+
+		if (this.state.selectedDifficulty) {
+			content.push(
 				<ExcerciseOptionsForm exercise={ this.state.selectedExercise }/>
+			);
+		}
+
+		return (
+			<Paper style={{ padding : 25 }}>
+				<div className="row" id="setup-options-wrapper">
+					<div className="col-xs-12">
+						{ content }
+					</div>
+				</div>
 			</Paper>
 		);
 	}

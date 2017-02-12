@@ -156,7 +156,7 @@ export default class WorkoutReport extends Component {
 					<h1 style={{ margin : 0, padding : 0 }} className="text-center">
 						Let's {this.state.selectedExercise}!</h1>
 					<hr/>
-					<table className="table">
+					<table className="table table-bordered table-striped">
 						<thead>
 						<tr>
 							<th>Set</th>

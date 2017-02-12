@@ -30,19 +30,47 @@ input[type=number]::-webkit-outer-spin-button {
 	margin: 0;
 }
 
-
 #footer-panel {
 	margin-top: 25px;
 }
 
 #difficulty-panel {
 	strong {
-		font-weight:bold;
+		font-weight: bold;
 	}
 }
 
 table {
 	td, th {
 		text-align: center;
+	}
+}
+
+#difficulty-wrapper {
+	h3 {
+		margin: 15px 0;
+		margin-top: 30px;
+		font-weight: bold;
+	}
+
+	.difficulty-1 {
+		background-color: mintcream;
+		border-color: green;
+	}
+	.difficulty-2 {
+		background-color: darken(mintcream, 10);
+		border-color: green;
+	}
+	.difficulty-3 {
+		background-color: lemonchiffon;
+		border-color: yellow;
+	}
+	.difficulty-4 {
+		background-color: mistyrose;
+		border-color: red;
+	}
+	.difficulty-5 {
+		background-color: darken(mistyrose, 10);
+		border-color: red;
 	}
 }

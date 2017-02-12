@@ -59,11 +59,11 @@ export default class ExerciseOptionsForm extends Component {
 		return (
 			<div>
 				<div className="row">
-					<div className="col-xs-6">
+					<div className="col-xs-12">
+						<h2>Your Max For This Exercise</h2>
 						<TextField type='number'
 								   onChange={ this.handleMaxChange.bind(this) }
-								   fullWidth
-								   floatingLabelText="Your Max For This Exercise"
+								   floatingLabelText="Enter A Number"
 								   errorText={ ( !this.state.maxEntered ) ? "You must enter your one rep max" : '' }
 						/>
 					</div>
