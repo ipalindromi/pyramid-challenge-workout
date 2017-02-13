@@ -64,7 +64,7 @@ export default class SetupOptionsForm extends Component {
 		const content = [];
 
 		content.push(
-			<div id="exercise-wrapper">
+			<div key='exercise' id="exercise-wrapper">
 				<h2>Choose Your Exercise</h2>
 				<div className="row">
 					<div className="col-xs-12">
@@ -83,7 +83,7 @@ export default class SetupOptionsForm extends Component {
 
 		if (this.state.selectedExercise) {
 			content.push(
-				<div id="difficulty-wrapper">
+				<div key='difficulty' id="difficulty-wrapper">
 					<h2>Choose Your Difficulty
 						<small>Drag slider to change difficulty</small>
 					</h2>
@@ -107,7 +107,7 @@ export default class SetupOptionsForm extends Component {
 
 		if (this.state.selectedDifficulty) {
 			content.push(
-				<ExcerciseOptionsForm exercise={ this.state.selectedExercise }/>
+				<ExcerciseOptionsForm key="options" exercise={ this.state.selectedExercise }/>
 			);
 		}
 

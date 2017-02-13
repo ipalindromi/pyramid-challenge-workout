@@ -84,11 +84,15 @@ export default class WorkoutReport extends Component {
 				}
 			}
 
-			if (increase < 0 || set == sets) {
+			if (increase < 0 || set === sets || set === 15) {
 				increase = 0;
 			}
 
 			const reps = 15 - (set - 1);
+
+			if (currentWeight + increase > goalMaxWeight) {
+				increase = goalMaxWeight - currentWeight;
+			}
 
 			series.push(
 				{
@@ -110,7 +114,7 @@ export default class WorkoutReport extends Component {
 				// Slice shallow copies
 				return Object.assign({}, set, {
 					set : 16 + idx,
-					increase : (idx == 13) ? 0 : set.increase,
+					increase : (idx == 13) ? 0 : set.increase * -1,
 				});
 			});
 
