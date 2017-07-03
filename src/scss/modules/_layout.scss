@@ -1,0 +1,9 @@
+.section {
+	padding: 25px;
+
+	.section {
+		padding: 25px 0;
+		border-top: thin solid lightgray;
+		margin-top: 25px;
+	}
+}

@@ -1,0 +1,17 @@
+@import "../modules/layout";
+
+.header {
+	@extend .section;
+
+	.instructions {
+		@extend .section;
+
+		h3 {
+			color: dimgray;
+		}
+
+		ol li {
+			line-height: 1.8em;
+		}
+	}
+}
