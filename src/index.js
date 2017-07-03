@@ -8,6 +8,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import './scss/template.scss';
+import plateCalculator from 'plate-calculator';
+
+console.log(plateCalculator.calculate(255));
 
 injectTapEventPlugin();
 
