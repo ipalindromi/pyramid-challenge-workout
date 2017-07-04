@@ -158,9 +158,10 @@ const ChallengeReport = (props) => {
 		});
 
 		content = (
-			<div>
+			<div className="text-center">
 				<h1 style={{ margin: 0, padding: 0 }} className="text-center">
 					Let's {props.selectedExercise.name}!</h1>
+				<small>(Hover over rows to see how many plates to put on the bar!)</small>
 				<hr/>
 				<table className="table table-bordered table-striped">
 					<thead>

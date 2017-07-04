@@ -27,7 +27,10 @@ const pyramidChallenge = (state = initialState, action) => {
 				}),
 			};
 		case 'CHANGE_MAX_LIFT' :
-			return Object.assign({}, state, { maxForLift: +action.maxForLift });
+			return {
+				...state,
+				maxForLift: +action.maxForLift
+			};
 		default:
 			return state
 	}
