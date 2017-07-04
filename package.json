@@ -1,7 +1,7 @@
 {
   "name": "pyramid-challenge",
   "version": "1.0.0",
-  "description": "Describe pyramid-challenge here",
+  "description": "A little workout challenge to build endurance and strenth simultaneously",
   "private": true,
   "scripts": {
     "build": "./node_modules/nwb/lib/bin/nwb.js build-react-app",
