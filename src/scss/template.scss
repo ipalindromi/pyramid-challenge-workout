@@ -1,14 +1,29 @@
 @import "./partials/header";
+@import "./partials/footer";
+@import "./partials/settingsForm";
+@import "./partials/challengeReport";
+@import "./modules/colors";
+@import "./modules/layout";
 
 body {
 	background-color: whitesmoke;
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
+	color: $almost-black;
 }
 
 .headers {
 	margin: 0;
 	padding: 0;
+}
+
+.flexRow {
+	display: flex;
+}
+
+.settingsRow {
+	@extend .section;
+	border-top: thin solid lightgray;
 }
 
 h1 {
@@ -47,35 +62,4 @@ table {
 	}
 }
 
-#difficulty-wrapper {
-	h3 {
-		margin: 15px 0;
-		margin-top: 30px;
-		font-weight: bold;
-	}
 
-	small {
-		margin-left: 10px;
-	}
-
-	.difficulty-1 {
-		background-color: darken(mintcream, 10);
-		border-color: green;
-	}
-	.difficulty-2 {
-		background-color: mintcream;
-		border-color: green;
-	}
-	.difficulty-3 {
-		background-color: lemonchiffon;
-		border-color: yellow;
-	}
-	.difficulty-4 {
-		background-color: mistyrose;
-		border-color: red;
-	}
-	.difficulty-5 {
-		background-color: darken(mistyrose, 10);
-		border-color: red;
-	}
-}

@@ -21,7 +21,7 @@ const AwareSettingsForm = isStateAware(SettingsForm);
 const AwareResultsForm = isStateAware(ChallengeReportWrapper);
 
 // FIXME : Hotloader wants this to be a full Component.
-// This is fixed in Webpack 3
+// This is supposed to be fixed in Webpack 3
 class App extends Component {
 	render() {
 		return (
@@ -30,10 +30,24 @@ class App extends Component {
 					<div className="row">
 						<div className="col-xs-12 col-md-10 col-md-offset-1">
 							<Paper zDepth={3}>
-								<Header/>
-								<AwareSettingsForm/>
-								<AwareResultsForm/>
-								<Footer/>
+								<div className="row">
+									<div className="col-xs-12">
+										<Header/>
+									</div>
+								</div>
+								<div className="row settingsRow flexRow">
+									<div className="col-xs-5">
+										<AwareSettingsForm/>
+									</div>
+									<div className="col-xs-7 flexRow">
+										<AwareResultsForm/>
+									</div>
+								</div>
+								<div className="row">
+									<div className="col-xs-12">
+										<Footer/>
+									</div>
+								</div>
 							</Paper>
 						</div>
 					</div>

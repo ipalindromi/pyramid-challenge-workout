@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import plateCalculator from 'plate-calculator'
 
 const _calculateSeries = (selectedDifficulty,
 	max,
@@ -72,6 +73,8 @@ const _calculateSeries = (selectedDifficulty,
 			increase = goalMaxWeight - currentWeight;
 		}
 
+		currentWeight = Math.round(currentWeight);
+
 		series.push(
 			{
 				set,
@@ -79,6 +82,7 @@ const _calculateSeries = (selectedDifficulty,
 				increase,
 				weight: currentWeight,
 				totalWeight: currentWeight * reps,
+				weightUnits: plateCalculator.calculate(currentWeight),
 			}
 		);
 
@@ -131,8 +135,19 @@ const ChallengeReport = (props) => {
 		const rows = series.map((set, idx) => {
 			totalWeight += set.totalWeight;
 			totalReps += set.reps;
+
+			let plateSet = [];
+
+			if (set.weightUnits && set.weightUnits.plates) {
+				set.weightUnits.plates.forEach((plate) => {
+					plateSet.push(`${plate.qty}x${plate.plateWeight}`);
+				})
+
+			}
+
+			// FIXME : un-hardcode to imperial
 			return (
-				<tr key={idx}>
+				<tr key={idx} title={plateSet.join(', ') + ' pound plates'}>
 					<td className="">{set.set}</td>
 					<td>{set.reps}</td>
 					<td>{set.weight}</td>

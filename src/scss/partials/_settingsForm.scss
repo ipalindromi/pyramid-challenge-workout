@@ -1,0 +1,36 @@
+.settingsForm {
+	padding: 1em;
+}
+
+.difficultyDescription {
+	h3 {
+		margin: 15px 0;
+		margin-top: 30px;
+		font-weight: bold;
+	}
+
+	small {
+		margin-left: 10px;
+	}
+}
+
+.difficultyDescription--1 {
+	background-color: darken(mintcream, 10);
+	border-color: green;
+}
+.difficultyDescription--2 {
+	background-color: mintcream;
+	border-color: green;
+}
+.difficultyDescription--3 {
+	background-color: lemonchiffon;
+	border-color: yellow;
+}
+.difficultyDescription--4 {
+	background-color: mistyrose;
+	border-color: red;
+}
+.difficultyDescription--5 {
+	background-color: darken(mistyrose, 10);
+	border-color: red;
+}

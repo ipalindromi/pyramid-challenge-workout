@@ -8,7 +8,7 @@ const DifficultyDescription = (props) => {
 		const halfOrFull = difficulty.sets === 15 ? "half-pyramid" : "full-pyramid";
 
 		return (
-			<div id="difficulty-panel">
+			<div>
 				You will be doing a <strong>{halfOrFull}</strong> workout of <strong>{ difficulty.sets }</strong> sets
 				starting at <strong>45 lbs.</strong> and working up to <strong>{ difficulty.percentOfMax }%</strong> of
 				your one-rep maximum.
@@ -17,11 +17,10 @@ const DifficultyDescription = (props) => {
 	};
 
 	return (props.selectedDifficulty) ? (
-		<div>
-			<h3>Selected: { props.selectedDifficulty.name }
-				<small>{ props.selectedDifficulty.blurb }</small>
-			</h3>
-			<div className={`difficulty-${props.selectedDifficulty.name} panel panel-default`}>
+		<div className="difficultyDescription">
+			<h3>Selected: { props.selectedDifficulty.name }</h3>
+			<small>{ props.selectedDifficulty.blurb }</small>
+			<div className={`difficultyDescription--${props.selectedDifficulty.level} panel panel-default`}>
 				<div className="panel-body">
 					{ _makeDifficultyDescription(props.selectedDifficulty) }
 				</div>

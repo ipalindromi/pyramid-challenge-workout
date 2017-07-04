@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
 	return (
-		<div id="footer-panel" className="panel panel-default">
+		<div className="footer panel panel-default">
 			<div className="panel-body">
 				<h1>What Is This?</h1>
 				<p>

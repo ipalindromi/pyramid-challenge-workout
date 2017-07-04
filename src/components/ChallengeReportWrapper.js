@@ -5,10 +5,14 @@ import ChallengeReport from './dumb/ChallengeReport'
 
 const ChallengeReportWrapper = (props) => {
 	return (props.selectedExercise && props.maxForLift) ? (
-		<Section>
+		<Section className="challengeReport">
 			<ChallengeReport {...props}/>
 		</Section>
-	) : null;
+	) : (
+		<Section className="challengeReport--isNull">
+			<h3>Fill out the options first!</h3>
+		</Section>
+	);
 };
 
 export default ChallengeReportWrapper;

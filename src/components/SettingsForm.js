@@ -48,16 +48,14 @@ const SettingsForm = (props) => {
 	) : null;
 
 	return (
-		<Section>
-			<Section>
-				<h3>Choose Your Exercise</h3>
-				<ExerciseSelector
-					exercises={props.exercises}
-					onChangeExercise={onExerciseChange}
-					selectedExercise={props.selectedExercise}
-				/>
-				{ exerciseForm }
-			</Section>
+		<Section className="settingsForm">
+			<h3>Choose Your Exercise</h3>
+			<ExerciseSelector
+				exercises={props.exercises}
+				onChangeExercise={onExerciseChange}
+				selectedExercise={props.selectedExercise}
+			/>
+			{ exerciseForm }
 		</Section>
 	);
 };

@@ -1,0 +1,7 @@
+@import "../modules/layout";
+@import "../modules/colors";
+
+.footer {
+	@extend .section;
+	color: $almost-black;
+}
