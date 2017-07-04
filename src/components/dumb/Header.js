@@ -8,7 +8,7 @@ const Header = (props) => {
 				The Pyramid Challenge
 			</h1>
 			<h2 className="header--heading2">
-				A super fun way to kill yourself, by <a href="http://dustinbaldwin.com" target="_blank">Dustin
+				A super fun way to just about kill yourself, by <a href="http://dustinbaldwin.com" target="_blank">Dustin
 				Baldwin</a>
 			</h2>
 			<Section className="instructions">

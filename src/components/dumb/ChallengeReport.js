@@ -70,7 +70,7 @@ const _calculateSeries = (selectedDifficulty,
 		const reps = 15 - (set - 1);
 
 		if (currentWeight + increase > goalMaxWeight) {
-			increase = goalMaxWeight - currentWeight;
+			increase = Math.round(goalMaxWeight - currentWeight);
 		}
 
 		currentWeight = Math.round(currentWeight);
@@ -137,17 +137,21 @@ const ChallengeReport = (props) => {
 			totalReps += set.reps;
 
 			let plateSet = [];
+			let plateReadout = 'Just the bar!';
 
 			if (set.weightUnits && set.weightUnits.plates) {
 				set.weightUnits.plates.forEach((plate) => {
 					plateSet.push(`${plate.qty}x${plate.plateWeight}`);
-				})
+				});
 
+				if (plateSet.length) {
+					plateReadout = 'Put ' + plateSet.join(', ') + ' pound plates on the bar';
+				}
 			}
 
 			// FIXME : un-hardcode to imperial
 			return (
-				<tr key={idx} title={plateSet.join(', ') + ' pound plates'}>
+				<tr key={idx} title={plateReadout}>
 					<td className="">{set.set}</td>
 					<td>{set.reps}</td>
 					<td>{set.weight}</td>

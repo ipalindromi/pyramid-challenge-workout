@@ -20,3 +20,11 @@ This app is build with:
 - Redux
 - react-router
 - plate-calculator ([A library of mine](https://github.com/ipalindromi/plate-calculator))
+
+## TODO
+- Exercise timers, so you can keep track of how long each set took, and track how long the challenge took to complete.
+- Localized persistence, so your settings don't disappear on reload.
+- Add testing for at least the calculations.
+- Metric mode
+- More exercises
+- Dumbbell mode
