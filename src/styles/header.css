@@ -1,7 +1,26 @@
-@import "../modules/layout";
-@import "../modules/colors";
-
 .header {
+	color: #121212;
+}
+
+.header h2 {
+	margin-top: .75em;
+	color: lighten(#121212, 50);
+	padding-left: .2em;
+}
+
+.header h3 {
+	color: dimgray;
+}
+
+.header ol,
+.header li {
+	line-height: 1.8em;
+}
+
+
+
+
+/* .header {
 	@extend .section;
 	color: $almost-black;
 
@@ -40,4 +59,4 @@
 
 	&--heading1 {
 	}
-}
+} */

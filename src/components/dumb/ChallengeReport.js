@@ -12,7 +12,7 @@ const _calculateSeries = (selectedDifficulty,
 		throw new Error('Unrecognized difficulty level');
 	}
 
-	// SET ALL THE DIFFICULTY VARIABLES
+	// SET ALL THE DIFFICULTY letIABLES
 	// ----------------------------------
 	let sets = selectedDifficulty.sets;
 	let percentOfMax = selectedDifficulty.percentOfMax / 100;
@@ -28,7 +28,7 @@ const _calculateSeries = (selectedDifficulty,
 	let drift = 0;
 
 	// TODO : To be used in full pyramid 1 == forward -1 == backward
-	let direction = 1;
+	//let direction = 1;
 
 	// The weight being lifted this set
 	let currentWeight = startingWeight;
@@ -41,15 +41,15 @@ const _calculateSeries = (selectedDifficulty,
 		// This is the weight we'd want if everything were perfectly divisible.
 		// Assume the first full set is with just the bar
 		// FIXME: Assumes barbell
-		var goal = (goalMaxWeight - (startingWeight)) / (15 - 1);
+		let goal = (goalMaxWeight - (startingWeight)) / (15 - 1);
 
 		// This is the nearest weight to the plates that we actually have
-		var nearest = Math.round(goal / smallestIncrease) * smallestIncrease;
+		let nearest = Math.round(goal / smallestIncrease) * smallestIncrease;
 
 		// Increase the drive by how much we missed the plate by
 		drift += (goal - nearest);
 
-		var increase = nearest;
+		let increase = nearest;
 
 		// The final increase gets adjusted by the drift whenever it becomes
 		// enough to be registered in our smallest available units
@@ -75,16 +75,14 @@ const _calculateSeries = (selectedDifficulty,
 
 		currentWeight = Math.round(currentWeight);
 
-		series.push(
-			{
-				set,
-				reps,
-				increase,
-				weight: currentWeight,
-				totalWeight: currentWeight * reps,
-				weightUnits: plateCalculator.calculate(currentWeight),
-			}
-		);
+		series.push({
+			set,
+			reps,
+			increase,
+			weight: currentWeight,
+			totalWeight: currentWeight * reps,
+			weightUnits: plateCalculator.calculate(currentWeight),
+		});
 
 		currentWeight += increase;
 	}
@@ -96,7 +94,7 @@ const _calculateSeries = (selectedDifficulty,
 			// Slice shallow copies
 			return Object.assign({}, set, {
 				set: 16 + idx,
-				increase: (idx == 13) ? 0 : set.increase * -1,
+				increase: (idx === 13) ? 0 : set.increase * -1,
 			});
 		});
 
@@ -118,9 +116,13 @@ const ChallengeReport = (props) => {
 	} else if (!props.maxForLift) {
 		content = (
 			<p key='max' style={{ padding: 25 }} className="bg-warning text-center">
-				Your workout will be generated once you enter your one rep maximum for {props.selectedExercise}
+				Your workout will be generated once you enter your one rep maximum for {props.selectedExercise.name}
 			</p>
 		);
+	} else if (!props.selectedExercise && !props.maxForLift) {
+		content = (<div className="challengeReport--isNull">
+			<h3>Fill out the options first!</h3>
+		</div>)
 	}
 
 	if (!content) {
@@ -163,45 +165,44 @@ const ChallengeReport = (props) => {
 
 		content = (
 			<div className="text-center">
-				<h1 style={{ margin: 0, padding: 0 }} className="text-center">
-					Let's {props.selectedExercise.name}!</h1>
-				<small>(Hover over rows to see how many plates to put on the bar!)</small>
-				<hr/>
-				<table className="table table-bordered table-striped">
-					<thead>
-					<tr>
-						<th>Set</th>
-						<th>Reps</th>
-						<th>Weight</th>
-						<th>Increase</th>
-						<th>Total Weight</th>
-					</tr>
-					</thead>
-					<tbody>
-					{rows}
-					<tr>
-						<td colSpan="2">Total Reps:</td>
-						<td>{totalReps}</td>
-						<td>Total Weight:</td>
-						<td>{ totalWeight }</td>
-					</tr>
-					</tbody>
-				</table>
-			</div>
+					<h1 style={{ margin: 0, padding: 0 }} className="text-center">Let's {props.selectedExercise.name}!</h1>
+					<small>(Hover over rows to see how many plates to put on the bar!)</small>
+					<hr/>
+					<table className="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>Set</th>
+							<th>Reps</th>
+							<th>Weight</th>
+							<th>Increase</th>
+							<th>Total Weight</th>
+						</tr>
+						</thead>
+						<tbody>
+						{rows}
+						<tr>
+							<td colSpan="2">Total Reps:</td>
+							<td>{totalReps}</td>
+							<td>Total Weight:</td>
+							<td>{ totalWeight }</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 		);
 	}
 
 	return (
-		<div>
-			{ content }
+		<div className="challenge-report">
+			{content}
 		</div>
 	);
 };
 
 ChallengeReport.propTypes = {
-	selectedExercise: PropTypes.object.isRequired,
-	selectedDifficulty: PropTypes.object.isRequired,
-	maxForLift: PropTypes.number.isRequired,
+	selectedExercise: PropTypes.object,
+	selectedDifficulty: PropTypes.object,
+	maxForLift: PropTypes.number,
 };
 
 export default ChallengeReport;

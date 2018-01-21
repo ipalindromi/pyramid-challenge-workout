@@ -1,21 +1,15 @@
-.settingsForm {
-	padding: 1em;
-}
-
-.difficultyDescription {
-	h3 {
+.difficultyDescription h3 {
 		margin: 15px 0;
 		margin-top: 30px;
 		font-weight: bold;
-	}
+}
 
-	small {
+.difficultyDescription small {
 		margin-left: 10px;
-	}
 }
 
 .difficultyDescription--1 {
-	background-color: darken(mintcream, 10);
+	background-color: rgb(204, 255, 230);
 	border-color: green;
 }
 .difficultyDescription--2 {
@@ -31,6 +25,6 @@
 	border-color: red;
 }
 .difficultyDescription--5 {
-	background-color: darken(mistyrose, 10);
+	background-color: rgb(253, 162, 153);
 	border-color: red;
 }

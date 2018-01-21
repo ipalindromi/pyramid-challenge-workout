@@ -1,14 +1,13 @@
-export default [
-	{
-		name : "Bench Press",
-		isBarbellExercise : true,
+export default [{
+		name: "Bench Press",
+		isBarbellExercise: true,
 	},
 	{
 		name: "Squat",
-		isBarbellExercise : true,
+		isBarbellExercise: true,
 	},
 	{
 		name: "Deadlift",
-		isBarbellExercise : true,
+		isBarbellExercise: true,
 	}
 ];

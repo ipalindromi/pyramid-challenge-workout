@@ -1,0 +1,48 @@
+body {
+	background-color: whitesmoke;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #121212;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+.flexRow {
+	display: flex;
+}
+
+h2 {
+	font-size: 1.4em;
+}
+
+h3 {
+	font-size: 1.2em;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+#footer-panel {
+	margin-top: 25px;
+}
+
+#difficulty-panel strong {
+	font-weight: bold;
+}
+
+table td,
+table th {
+	text-align: center;
+}
+
+.padding--m {
+	padding: 25px;
+}

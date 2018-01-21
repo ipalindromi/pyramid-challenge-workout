@@ -16,7 +16,7 @@ const DifficultyDescription = (props) => {
 		);
 	};
 
-	return (props.selectedDifficulty) ? (
+	return (
 		<div className="difficultyDescription">
 			<h3>Selected: { props.selectedDifficulty.name }</h3>
 			<small>{ props.selectedDifficulty.blurb }</small>
@@ -26,11 +26,11 @@ const DifficultyDescription = (props) => {
 				</div>
 			</div>
 		</div>
-	) : null;
+	)
 };
 
 DifficultyDescription.propTypes = {
-	selectedDifficulty: PropTypes.object,
+	selectedDifficulty: PropTypes.object.isRequired,
 };
 
 export default DifficultyDescription;

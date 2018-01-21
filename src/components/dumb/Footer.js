@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
 	return (
-		<div className="footer panel panel-default">
+		<footer className="footer panel panel-default">
 			<div className="panel-body">
 				<h1>What Is This?</h1>
 				<p>
@@ -25,7 +25,7 @@ const Footer = () => {
 				<h2>What's Next?</h2>
 				<p>I have a lot of ideas I'd like to implement, as time allows. Most of this stuff isn't too
 					difficult, so if you're a coder and want to help out, check out the github page
-					<a href="https://github.com/ipalindromi/pyramid-challenge-workout">here!</a></p>
+					 <a href="https://github.com/ipalindromi/pyramid-challenge-workout"> here!</a></p>
 				<ul>
 					<li>Weight calculator, so you know exactly what to put on the bar.</li>
 					<li>More customization of workout parameters</li>
@@ -33,7 +33,7 @@ const Footer = () => {
 					<li>Make site work with metric units</li>
 				</ul>
 			</div>
-		</div>
+		</footer>
 	);
 };
 

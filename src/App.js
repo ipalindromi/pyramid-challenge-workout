@@ -1,30 +1,36 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
+import React, {
+	PureComponent
+} from 'react'
+
+// Required for material-ui to work
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Paper from 'material-ui/Paper'
-import Header from './dumb/Header'
-import Footer from './dumb/Footer'
-import SettingsForm from './SettingsForm'
-import ChallengeReportWrapper from './ChallengeReportWrapper'
+import Divider from 'material-ui/Divider'
 
-const isStateAware = component => {
-	const mapStateToProps = state => {
-		return state;
-	};
+import {
+	createStore,
+} from 'redux'
+import {
+	Provider,
+} from 'react-redux'
 
-	return connect(
-		mapStateToProps
-	)(component);
-};
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import reducers from './reducers'
 
-const AwareSettingsForm = isStateAware(SettingsForm);
-const AwareResultsForm = isStateAware(ChallengeReportWrapper);
+import Header from './components/dumb/Header'
+import Footer from './components/dumb/Footer'
+import ConnectedSettingsForm from './components/connected/ConnectedSettingsForm'
+import ConnectedChallengeReport from './components/connected/ConnectedChallengeReport'
+
+import './styles/app.css'
 
 // FIXME : Hotloader wants this to be a full Component.
 // This is supposed to be fixed in Webpack 3
-class App extends Component {
+injectTapEventPlugin();
+
+export default class extends PureComponent {
 	render() {
-		return (
+		return (<Provider store={createStore(reducers)}>
 			<MuiThemeProvider>
 				<div className="container">
 					<div className="row">
@@ -33,18 +39,20 @@ class App extends Component {
 								<div className="row">
 									<div className="col-xs-12">
 										<Header/>
+										<Divider/>
 									</div>
 								</div>
 								<div className="row settingsRow flexRow">
 									<div className="col-xs-5">
-										<AwareSettingsForm/>
+										<ConnectedSettingsForm/>
 									</div>
 									<div className="col-xs-7 flexRow">
-										<AwareResultsForm/>
+										<ConnectedChallengeReport/>
 									</div>
 								</div>
 								<div className="row">
 									<div className="col-xs-12">
+										<Divider/>
 										<Footer/>
 									</div>
 								</div>
@@ -53,8 +61,6 @@ class App extends Component {
 					</div>
 				</div>
 			</MuiThemeProvider>
-		);
+  </Provider>)
 	}
-}
-
-export default App;
+};

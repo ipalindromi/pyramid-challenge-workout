@@ -1,17 +1,17 @@
 import React from 'react'
-import Section from './Section'
+import '../../styles/header.css'
 
 const Header = (props) => {
 	return (
-		<Section className="header">
+		<header className="header padding--m">
 			<h1 className="header--heading1">
 				The Pyramid Challenge
 			</h1>
 			<h2 className="header--heading2">
-				A super fun way to just about kill yourself, by <a href="http://dustinbaldwin.com" target="_blank">Dustin
+				A super fun way to just about kill yourself, by <a href="http://dustinbaldwin.com" target="_blank" rel="noopener noreferrer">Dustin
 				Baldwin</a>
 			</h2>
-			<Section className="instructions">
+			<div className="instructions">
 				<h3>Rules / Instructions / More-What-You'd-Call-Guidelines</h3>
 				<ol>
 					<li>Choose an exercise</li>
@@ -24,8 +24,8 @@ const Header = (props) => {
 					</li>
 					<li>When you miss a rep, the game is over. You'll do better next time!</li>
 				</ol>
-			</Section>
-		</Section>
+			</div>
+		</header>
 	);
 };
 
